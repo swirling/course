@@ -277,8 +277,11 @@ find f lis =
 lengthGT4 ::
   List a
   -> Bool
-lengthGT4 li = length li > 4
-
+--lengthGT4 li = length li > 4
+lengthGT4 (_:._:._:._:._:._) =
+  True
+lengthGT4 _ =
+  False
 -- | Reverse a list.
 --
 -- >>> reverse Nil
@@ -293,11 +296,11 @@ lengthGT4 li = length li > 4
 reverse ::
   List a
   -> List a
-reverse=
-    case lis of
-        Nil -> Nil
-        a :. b -> reverse b ++ (a :. Nil)
--- foldLeft (flip (:.)) Nil
+reverse =
+--    case list of
+--        Nil -> Nil
+--        a :. b -> reverse b ++ (a :. Nil)
+    foldLeft (flip (:.)) Nil
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
 --
